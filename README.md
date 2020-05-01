@@ -120,10 +120,10 @@ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.5.2 sh -
 
 ![](images/image17.png)
 
-- Change into newly downloaded directory
+- Change into newly downloaded directory (the Istio version downloaded)
 
 ```bash
-cd istio-1.4.3/
+cd istio-<1.x.x>/
 ```
 
 - Add current directly to path
