@@ -112,10 +112,10 @@ kubectl get namespaces
 
 - To install **Istio** we will be using the **Istio CLI**. For completed instructions [Istio Docs](https://istio.io/docs/setup/install/istioctl/)
 
-- Use the following command to download **Istio CLI** into your directory of choice and supported by ASM.
+- Use the following command to download **Istio CLI** into your directory of choice and supported by ASM (1.5.2 at this time).
 
 ```bash
-curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.5.2 sh -
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=<x.x.x> sh -
 ```
 
 ![](images/image17.png)
@@ -123,7 +123,7 @@ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.5.2 sh -
 - Change into newly downloaded directory (the Istio version downloaded)
 
 ```bash
-cd istio-<1.x.x>/
+cd istio-<x.x.x>/
 ```
 
 - Add current directly to path
