@@ -1,5 +1,4 @@
 # ASMonAzure
-Walk through on how to install Anypoint Service Mesh on Azure Kubernetes Servies
 ![](images/title.png)  
 Update: April 30, 2020
 
@@ -329,7 +328,7 @@ kubectl apply -f demo-bind-apis.yaml
 asmctl api binding list
 ```
 
-![](images/image31.png)
+![](images/imageX.png)
 
 - If you go may to **API Management** in Anypoint Platform and refresh the page you will see that the API's are now **Active**. 
 
@@ -342,19 +341,19 @@ asmctl api binding list
 
 - From the **API Management** Screen in Anypoint Platform click on the version number for **customer-api**
 
-    ![](images/image32.png)
+    ![](images/imageX.png)
 
 - Click **Policies** and then click **Apply New Policy**. Expand **Rate Limiting** select newest version and click **Configure Policy**. 
 
-    ![](images/image33.png)
+    ![](images/imageX.png)
 
 - We will configure the rate limit to be 1 call per minute. Click **Apply**
 
-    ![](images/image34.png)
+    ![](images/imageX.png)
 
 - You should now see your new **Rate limiting** policy. To test this out run through the order process in the demo application. Try to run through it 2 times within a minute. The second time through you will get **Account Retrieval Failed** error.
 
-    ![](images/image35.png)
+    ![](images/imageX.png)
 
 - Before moving onto the next step remove the **Rate Limiting** policy.
 
@@ -364,13 +363,13 @@ asmctl api binding list
 
 - Click **Policies** and then click **Apply New Policy**. Expand **Client ID enforcement** select newest version and click **Configure Policy**. 
 
-    ![](images/image36.png)
+    ![](images/imageX.png)
 
 - Leave all defaults and click **APPLY**
 
 - You should now see your new **Client ID enforcement** policy. Once again run through the demo application but this time you should see **Payment Authorization Failed** when you click **AUTHORIZE PAYMENT**
 
-    ![](images/image37.png)
+    ![](images/imageX.png)
 
 **CONGRATULATIONS!!!** You have completed install Anypoint Service Mesh and applying policies to kubernetes services via Anypoint Platform.
 
