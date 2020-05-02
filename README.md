@@ -4,7 +4,7 @@ Update: April 30, 2020
 
 ## Introduction
 
-This cookbook will walk you through the process of installing **Anypoint Service Mesh** on **Azure**. You will deploy a demo application and secure using Anypoint Service Mesh.
+This cookbook will walk you through the process of installing **Anypoint Service Mesh** on **Microsoft Azure Cloud Platform**. You will deploy a demo application and secure using Anypoint Service Mesh.
 
 ***To log issues***, click here to go to the [github](https://github.com/mulesoft-consulting/ASMonAzure/issues) repository issue submission form.
 
@@ -149,7 +149,7 @@ istioctl manifest apply --set profile=demo --set values.global.disablePolicyChec
 kubectl get namespaces
 ```
 
-![](images/image20.png)
+![](images/image21.png)
 
 <a id="deploydemo"></a>
 ## Deploy Demo Application
@@ -171,7 +171,7 @@ cd ServiceMeshDemo/
 ls
 ```
 
-![](images/imageX.png)
+![](images/image21.png)
 
 ### **STEP 7**: Deploy Demo Application
 
@@ -181,7 +181,7 @@ ls
 ./deployAll.sh nto-payment
 ```
 
-![](images/imageX.png)
+![](images/image22.png)
 
 - You can monitory the deployment with the following commands
 
@@ -190,7 +190,7 @@ kubectl get pods -n nto-payment
 kubectl get services -n nto-payment
 ```
 
-![](images/imageX.png)
+![](images/image23.png)
 
 - Once all services are running you can test out the application. To access the application open you browser and go to the following URL
 
@@ -198,7 +198,9 @@ kubectl get services -n nto-payment
 http://<EXTERNAL-IP>:3000
 ```
 
-![](images/imageX.png)
+![](images/image24.png)
+
+![](images/image25.png)
 
 - To test out the application follow these steps:
 
@@ -209,7 +211,7 @@ http://<EXTERNAL-IP>:3000
     - Click **AUTHORIZE PAYMENT**
     - Last click **PLACE ORDER**
 
-![](images/imageX.png)
+![](images/image26.png)
 
 <a id="installasm"></a>
 ## Install Anypoint Service Mesh
@@ -224,7 +226,7 @@ For complete instructions and documentation please visit [MuleSoft Docs](https:/
 kubectl -n istio-system get cm istio -o yaml | sed -e 's/disableMixerHttpReports: true/disableMixerHttpReports: false/g' | kubectl replace -f -
 ```
 
-![](images/imageX.png)
+![](images/image27.png)
 
 - Download the latest Anypoint Service Mesh CLI and make it executable
 
