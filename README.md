@@ -285,7 +285,7 @@ asmctl adapter list
 
 ![](images/imageX.png)
 
-### **STEP 10**: Create APi's
+### **STEP 10**: Create APIs
 
 - We will now use now use Anypoint Service Mesh auto discovery to create API's in Anypoint Platform. We will create API's for Customer, Inventory, Order and Payments services that are used by the demo application.
 
