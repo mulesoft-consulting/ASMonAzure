@@ -275,7 +275,7 @@ kubectl get pods -n service-mesh
 
 - To deploy the ASM Adapter we will be using a Kubernetes custom resource definition (CRD). In the **ServiceMeshDemo** repository we have create the file **nto-payment-asm-adapter.yaml** that can modified.
 
-    ![](images/imageX.png)
+    ![](images/image30.png)
 
 - Replace **```<CLIENT ID>```** and **```<CLIENT SECRET>```** with values for your environment. Save file and run the following command
 
@@ -283,7 +283,7 @@ kubectl get pods -n service-mesh
 kubectl apply -f nto-payment-asm-adapter.yaml
 ```
 
-![](images/imageX.png)
+![](images/image31.png)
 
 - Use the following command to monitor the progress. Wait for status to change to **Ready**
 
@@ -291,7 +291,7 @@ kubectl apply -f nto-payment-asm-adapter.yaml
 asmctl adapter list
 ```
 
-![](images/imageX.png)
+![](images/image32.png)
 
 ### **STEP 10**: Create APIs
 
