@@ -112,7 +112,7 @@ kubectl get namespaces
 
 - To install **Istio** we will be using the **Istio CLI**. For completed instructions [Istio Docs](https://istio.io/docs/setup/install/istioctl/)
 
-- Use the following command to download **Istio CLI** into your directory of choice and supported by ASM (1.5.2 at this time).
+- Use the following command to download **Istio CLI** into your directory of choice and supported by ASM (1.4.6 at this time).
 
 ```bash
 curl -L https://istio.io/downloadIstio | ISTIO_VERSION=<x.x.x> sh -
@@ -120,13 +120,13 @@ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=<x.x.x> sh -
 
 ![](images/image17.png)
 
-- Change into newly downloaded directory (the Istio version downloaded)
+- Change into newly downloaded directory (the Istio version downloaded and to be installed)
 
 ```bash
 cd istio-<x.x.x>/
 ```
 
-- Add current directly to path
+- Add current directory directly to path
 
 ```bash
 export PATH=$PWD/bin:$PATH
@@ -149,7 +149,7 @@ istioctl manifest apply --set profile=demo --set values.global.disablePolicyChec
 kubectl get namespaces
 ```
 
-![](images/image21.png)
+![](images/image20.png)
 
 <a id="deploydemo"></a>
 ## Deploy Demo Application
@@ -230,8 +230,16 @@ kubectl -n istio-system get cm istio -o yaml | sed -e 's/disableMixerHttpReports
 
 - Download the latest Anypoint Service Mesh CLI and make it executable
 
+Download from Staging environment (STGX) for Pre-GA:
+
 ```bash
-curl -Ls http://anypoint.mulesoft.com/servicemesh/xapi/v1/install > asmctl && chmod +x asmctl
+mkdir -p $HOME/.asm && curl -Ls https://stgx.anypoint.mulesoft.com/servicemesh/xapi/v1/install > $HOME/.asm/asmctl && chmod +x $HOME/.asm/asmctl && export PATH=$PATH:$HOME/.asm
+```
+
+Download from GA:
+
+```bash
+mkdir -p $HOME/.asm && curl -Ls http://anypoint.mulesoft.com/servicemesh/xapi/v1/install > $HOME/.asm/asmctl && chmod +x $HOME/.asm/asmctl && export PATH=$PATH:$HOME/.asm
 ```
 
 - Since ASM is Pre-GA we will be using a staging environment. To have the **asmctl** connect to the correct environment set the variable **SERVICEMESH_PLATFORM_URI**
@@ -251,7 +259,7 @@ export SERVICEMESH_PLATFORM_URI=https://stgx.anypoint.mulesoft.com
 ./asmctl install
 ```
 
-![](images/imageX.png)
+![](images/image28.png)
 
 - Verify that Anypoint Service Mesh has been installed correctly with the following command
 
@@ -259,7 +267,7 @@ export SERVICEMESH_PLATFORM_URI=https://stgx.anypoint.mulesoft.com
 kubectl get pods -n service-mesh
 ```
 
-![](images/imageX.png)
+![](images/image29.png)
 
 ### **STEP 9**: Install Anypoint Service Mesh Adapter
 
@@ -311,7 +319,7 @@ asmctl api list
 
 - You can also verify that the API's have been created in Anypoint Platform. Go to Anypoint Platform and navigate to **API Manager**
 
-    ![](images/image28.png)
+    ![](images/imageX.png)
 
 ### **STEP 11**: Binding API's with Services
 
