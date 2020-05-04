@@ -230,22 +230,8 @@ kubectl -n istio-system get cm istio -o yaml | sed -e 's/disableMixerHttpReports
 
 - Download the latest Anypoint Service Mesh CLI and make it executable
 
-Download from Staging environment (STGX) for Pre-GA:
-
-```bash
-mkdir -p $HOME/.asm && curl -Ls https://stgx.anypoint.mulesoft.com/servicemesh/xapi/v1/install > $HOME/.asm/asmctl && chmod +x $HOME/.asm/asmctl && export PATH=$PATH:$HOME/.asm
-```
-
-Download from GA:
-
 ```bash
 mkdir -p $HOME/.asm && curl -Ls http://anypoint.mulesoft.com/servicemesh/xapi/v1/install > $HOME/.asm/asmctl && chmod +x $HOME/.asm/asmctl && export PATH=$PATH:$HOME/.asm
-```
-
-- Since ASM is Pre-GA we will be using a staging environment. To have the **asmctl** connect to the correct environment set the variable **SERVICEMESH_PLATFORM_URI**
-
-```bash
-export SERVICEMESH_PLATFORM_URI=https://stgx.anypoint.mulesoft.com
 ```
 
 - Now we are ready to install Anypoint Service Mesh. To do this we will call **asmctl install**. This command requires 3 parameters
@@ -256,7 +242,7 @@ export SERVICEMESH_PLATFORM_URI=https://stgx.anypoint.mulesoft.com
 - If you are not familiar with how to get environment Client Id and Secret please visit [MuleSoft Docs](https://docs.mulesoft.com/access-management/environments)
 
 ```bash
-./asmctl install
+asmctl install
 ```
 
 ![](images/image28.png)
