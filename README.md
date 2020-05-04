@@ -10,20 +10,35 @@ This cookbook will walk you through the process of installing **Anypoint Service
 
 ## Objectives
 
-- [Create Kubernetes Cluster on Azure Kubernetes Services (AKS)](#installaks)
-- [Install Istio](#installistio)
-- [Deploy Demo Application](#deploydemo)
-- [Install Anypoint Service Mesh](#installasm)
-- [Apply API Management Policies](#applypolicy)
+- **[Create Kubernetes Cluster on Azure Kubernetes Services (AKS)](#installaks)**
+	- [**STEP 1:** Create Azure Virtual Network](#step1)
+	- [**STEP 2:** Create Kubernetes Cluster](#step2)
+	- [**STEP 3:** Verify Cluster and Connect](#step3)
+
+- **[Install Istio](#installistio)**
+	- [**STEP 4:** Download and Install Istio CLI](#step4)
+	- [**STEP 5:** Install Istio Using CLI](#step5)
+- **[Deploy Demo Application](#deploydemo)**
+	- [**STEP 6:** Clone Demo Application](#step6)
+	- [**STEP 7:** Deploy Demo Application](#step7)
+- **[Install Anypoint Service Mesh](#installasm)**
+	- [**STEP 8:** Install Anypoint Service Mesh](#step8)
+	- [**STEP 9:** Install Anypoint Service Mesh Adapter](#step9)
+	- [**STEP 10:** Create APIs](#step10)
+	- [**STEP 11:** Binding API's with Services](#step11)
+- **[Apply API Management Policies](#applypolicy)**
+	- [**STEP 12:** Apply Rate Limiting Policy to Customer API](#step12)
+	- [**STEP 13:** Apply Client ID enforcement Policy to Payment API](#step13)
 
 ## Required Artifacts
 
 - The following lab requires an Enterprise Azure account.
-- Enable Anypoint Service Mesh in your STGX Organization (this is required before GA)
+- Enable Anypoint Service Mesh in your Anypoint Platform Organization.
 
 <a id="installaks"></a>
 ## Create Azure Kubernetes Services Cluster
 
+<a id="step1"></a>
 ### **STEP 1**: Create Azure Virtual Network
 
 - From any browser, go to the URL to access Azure Portal:
@@ -59,6 +74,7 @@ This cookbook will walk you through the process of installing **Anypoint Service
 
 	![](images/image7.png)
 
+<a id="step2"></a>
 ### **STEP 2**: Create Kubernetes Cluster
 
 - Back to the Azure Portal home page. Select **Kubernetes services**
@@ -89,6 +105,7 @@ This cookbook will walk you through the process of installing **Anypoint Service
 
 	![](images/image14.png)
 
+<a id="step3"></a>
 ### **STEP 3**: Verify Cluster and Connect
 
 - From the Kubernetes Services page, launch the **az** command line from the newly created AKS clluster using either *Bash* or *Powershell*. Make sure your account's initialized successfully from the Cloud Shell. 
@@ -108,6 +125,7 @@ kubectl get namespaces
 <a id="installistio"></a>
 ## Install Istio
 
+<a id="step4"></a>
 ### **STEP 4**: Download and Install Istio CLI
 
 - To install **Istio** we will be using the **Istio CLI**. For completed instructions [Istio Docs](https://istio.io/docs/setup/install/istioctl/)
@@ -134,6 +152,7 @@ export PATH=$PWD/bin:$PATH
 
 ![](images/image18.png)
 
+<a id="step5"></a>
 ### **STEP 5**: Install Istio using CLI
 - To install **Istio** we will be using the **Istio CLI**. From the **istio** directory run the following command
 
@@ -154,6 +173,7 @@ kubectl get namespaces
 <a id="deploydemo"></a>
 ## Deploy Demo Application
 
+<a id="step6"></a>
 ### **STEP 6**: Clone Demo Application
 
 - For our demo application will will be using **Northern Trail Outfitters** shopping cart application. This web based UI will call several services to complete the order.
@@ -173,6 +193,7 @@ ls
 
 ![](images/image21.png)
 
+<a id="step7"></a>
 ### **STEP 7**: Deploy Demo Application
 
 - We will now deploy the demo application to your kubernetes cluster. The deployment script takes the namespace as a parameter. We will be using **nto-payment** for namespace
@@ -216,6 +237,7 @@ http://<EXTERNAL-IP>:3000
 <a id="installasm"></a>
 ## Install Anypoint Service Mesh
 
+<a id="step8"></a>
 ### **STEP 8**: Install Anypoint Service Mesh
 
 For complete instructions and documentation please visit [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/1.0/s)
@@ -255,6 +277,7 @@ kubectl get pods -n service-mesh
 
 ![](images/image29.png)
 
+<a id="step9"></a>
 ### **STEP 9**: Install Anypoint Service Mesh Adapter
 
 - Next we want to deploy the Anypoint Service Mesh adapter in each namespace that we want to monitor APIs. For this example we will just be doing the **nto-payment** namespace that contains the demo application.
@@ -279,6 +302,7 @@ asmctl adapter list
 
 ![](images/image32.png)
 
+<a id="step10"></a>
 ### **STEP 10**: Create APIs
 
 - We will now use now use Anypoint Service Mesh auto discovery to create API's in Anypoint Platform. We will create API's for Customer, Inventory, Order and Payments services that are used by the demo application.
@@ -307,6 +331,7 @@ asmctl api list
 
     ![](images/imageX.png)
 
+<a id="step11"></a>
 ### **STEP 11**: Binding API's with Services
 
 - The last step is to bind the Kubernetes Services with the Anypoint Platform API's. To do this you will use the binding definition file **demo-bind-apis.yaml**. Execute the following command
@@ -333,6 +358,7 @@ asmctl api binding list
 <a id="applypolicy"></a>
 ## Apply API Management Policies
 
+<a id="step12"></a>
 ### **STEP 12**: Apply Rate Limiting Policy to Customer API
 
 - From the **API Management** Screen in Anypoint Platform click on the version number for **customer-api**
@@ -353,6 +379,7 @@ asmctl api binding list
 
 - Before moving onto the next step remove the **Rate Limiting** policy.
 
+<a id="step13"></a>
 ### **STEP 13**: Apply Client ID enforcement Policy to Payment API
 
 - Navigate back to the ***API Administration** page. Click on the version number for **payment-api**.
