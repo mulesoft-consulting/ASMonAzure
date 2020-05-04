@@ -69,7 +69,7 @@ This cookbook will walk you through the process of installing **Anypoint Service
 	
     ![](images/image9.png)
 
-- Select **B4ms**, per [documentation](https://beta.docs.stgx.mulesoft.com/beta-service-mesh/service-mesh/1.0/prepare-to-install-service-mesh#hardware-requirements)
+- Select **B4ms**, per [documentation](https://docs.mulesoft.com/service-mesh/1.0/prepare-to-install-service-mesh)
 
     ![](images/image10.png)
 
@@ -218,7 +218,7 @@ http://<EXTERNAL-IP>:3000
 
 ### **STEP 8**: Install Anypoint Service Mesh
 
-For complete instructions and documentation please visit [MuleSoft Docs](https://beta.docs.stgx.mulesoft.com/beta-service-mesh/service-mesh/1.0/service-mesh-overview-and-landing-page)
+For complete instructions and documentation please visit [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/1.0/s)
 
 - First lets enable API Analytics by setting the **disableMixerHttpReports** flag to false:
 
