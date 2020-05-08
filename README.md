@@ -317,7 +317,7 @@ asmctl adapter list
 kubectl apply -f demo-apis.yaml
 ```
 
-![](images/imageX.png)
+![](images/image33.png)
 
 - Use the following command to monitor the progress. Wait for status to change to **Ready**
 
@@ -325,11 +325,11 @@ kubectl apply -f demo-apis.yaml
 asmctl api list
 ```
 
-![](images/imageX.png)
+![](images/image34.png)
 
 - You can also verify that the API's have been created in Anypoint Platform. Go to Anypoint Platform and navigate to **API Manager**
 
-    ![](images/imageX.png)
+    ![](images/image35.png)
 
 <a id="step11"></a>
 ### **STEP 11**: Binding APIs with Services
