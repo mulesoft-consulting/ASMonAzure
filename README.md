@@ -25,7 +25,7 @@ This cookbook will walk you through the process of installing **Anypoint Service
 	- [**STEP 8:** Install Anypoint Service Mesh](#step8)
 	- [**STEP 9:** Install Anypoint Service Mesh Adapter](#step9)
 	- [**STEP 10:** Create APIs](#step10)
-	- [**STEP 11:** Binding API's with Services](#step11)
+	- [**STEP 11:** Binding APIs with Services](#step11)
 - **[Apply API Management Policies](#applypolicy)**
 	- [**STEP 12:** Apply Rate Limiting Policy to Customer API](#step12)
 	- [**STEP 13:** Apply Client ID enforcement Policy to Payment API](#step13)
@@ -53,7 +53,7 @@ This cookbook will walk you through the process of installing **Anypoint Service
 
 	![](images/image2.png)
 
-- Select **Resource Group** Enter **Name** for instance and select **Region** for Virtual Network creation.
+- Select **Resource Group** Enter a unique **Name** for instance and select **Region** for Virtual Network creation.
 
     ![](images/image3.png)
 
@@ -108,7 +108,7 @@ This cookbook will walk you through the process of installing **Anypoint Service
 <a id="step3"></a>
 ### **STEP 3**: Verify Cluster and Connect
 
-- From the Kubernetes Services page, launch the **az** command line from the newly created AKS clluster using either *Bash* or *Powershell*. Make sure your account's initialized successfully from the Cloud Shell. 
+- From the Kubernetes Services page, launch the **az** command line from the newly created AKS cluster using either *Bash* or *Powershell*. Make sure your account's initialized successfully from the Cloud Shell. 
 
 	![](images/image15.png)	
 
@@ -204,7 +204,7 @@ ls
 
 ![](images/image22.png)
 
-- You can monitory the deployment with the following commands
+- You can monitor the deployment with the following commands
 
 ```bash
 kubectl get pods -n nto-payment
@@ -226,8 +226,8 @@ http://<EXTERNAL-IP>:3000
 - To test out the application follow these steps:
 
     - Select Item to purchase
-    - Click **Add to Cart**
-    - Click **Checkout**
+    - Click **ADD TO CART**
+    - Click **CHECKOUT**
     - Leave default email and click **CONTINUE**
     - Click **AUTHORIZE PAYMENT**
     - Last click **PLACE ORDER**
@@ -332,7 +332,7 @@ asmctl api list
     ![](images/imageX.png)
 
 <a id="step11"></a>
-### **STEP 11**: Binding API's with Services
+### **STEP 11**: Binding APIs with Services
 
 - The last step is to bind the Kubernetes Services with the Anypoint Platform API's. To do this you will use the binding definition file **demo-bind-apis.yaml**. Execute the following command
 
