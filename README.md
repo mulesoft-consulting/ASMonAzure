@@ -312,7 +312,17 @@ asmctl adapter list
 kubectl label ns nto-payment istio-injection=enabled
 ```
 
-- Redeploy all your existing applications in that namepsace to ensure that the Envoy sidecar is injected within each pod in the Kubernetes Cluster.
+- Redeploy all the existing applications in the namepsace. See Step 6.2 in [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/1.0/provision-adapter-configure-service-mesh-CLI)
+
+![](images/image-redeploy-existing-apps.png)
+
+- Verify the Envoy sidecar is injected within each pod in the Kubernetes Cluster by running the following command
+
+```bash
+asmctl management check sidecar --namespace=nto-payment
+```
+
+![](images/image-check-sidecar-injections.png)
 
 <a id="step10"></a>
 ### **STEP 10**: Create APIs
