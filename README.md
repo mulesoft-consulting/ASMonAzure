@@ -467,5 +467,5 @@ asmctl api binding list
 
     ![](images/imageX.png)
 
-**CONGRATULATIONS!!!** You have completed install Anypoint Service Mesh and applying policies to kubernetes services via Anypoint Platform.
+**CONGRATULATIONS!!!** You have completed installing Anypoint Service Mesh and applying policies to kubernetes services via Anypoint Platform.
 
