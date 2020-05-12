@@ -465,7 +465,7 @@ asmctl api binding list
 
 - Once again run through the demo application but this time you should see **Payment Authorization Failed** when you click **AUTHORIZE PAYMENT**
 
-    ![](images/imageX.png)
+    ![](images/image47.png)
 
 **CONGRATULATIONS!!!** You have completed installing Anypoint Service Mesh and applying policies to kubernetes services via Anypoint Platform.
 
