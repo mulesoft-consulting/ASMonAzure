@@ -314,6 +314,34 @@ kubectl label ns nto-payment istio-injection=enabled
 
 - Redeploy all the existing applications in the namepsace. See Step 6.2 in [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/1.0/provision-adapter-configure-service-mesh-CLI)
 
+```bash
+kubectl get deployments -n nto-payment
+```
+
+```bash
+kubectl -n nto-payment patch deploy customer-app --type=json -p='[{"op": "replace", "path": "/spec/template/metadata/labels/service-mesh.mulesoft.com","value":"enable"}]'
+```
+
+```bash
+kubectl -n nto-payment patch deploy inventory-app --type=json -p='[{"op": "replace", "path": "/spec/template/metadata/labels/service-mesh.mulesoft.com","value":"enable"}]'
+```
+
+```bash
+kubectl -n nto-payment patch deploy order-app --type=json -p='[{"op": "replace", "path": "/spec/template/metadata/labels/service-mesh.mulesoft.com","value":"enable"}]'
+```
+
+```bash
+kubectl -n nto-payment patch deploy payment-app --type=json -p='[{"op": "replace", "path": "/spec/template/metadata/labels/service-mesh.mulesoft.com","value":"enable"}]'
+```
+
+```bash
+kubectl -n nto-payment patch deploy service-mesh-ui --type=json -p='[{"op": "replace", "path": "/spec/template/metadata/labels/service-mesh.mulesoft.com","value":"enable"}]'
+```
+
+```bash
+kubectl get pods -n nto-payment
+```
+
 ![](images/image-redeploy-existing-apps.png)
 
 - Verify the Envoy sidecar is injected within each pod in the Kubernetes Cluster by running the following command
