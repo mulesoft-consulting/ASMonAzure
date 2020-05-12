@@ -240,7 +240,7 @@ http://<EXTERNAL-IP>:3000
 <a id="step8"></a>
 ### **STEP 8**: Install Anypoint Service Mesh
 
-For complete instructions and documentation please visit [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/1.0/s)
+For complete instructions and documentation please visit [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/latest/)
 
 - First lets enable API Analytics by setting the **disableMixerHttpReports** flag to false:
 
@@ -261,7 +261,11 @@ mkdir -p $HOME/.asm && curl -Ls http://anypoint.mulesoft.com/servicemesh/xapi/v1
     - Client Secret
     - Service Mesh license
 
-- If you are not familiar with how to get environment Client Id and Secret please visit [MuleSoft Docs](https://docs.mulesoft.com/access-management/environments)
+- If you are not familiar with how to get environment Client Id and Secret, navigate to **API Manager** and click on the **Environment Information** button.
+
+![](images/image-env-info1.png)
+
+![](images/image-env-info2.png)
 
 ```bash
 asmctl install
@@ -309,7 +313,13 @@ asmctl adapter list
 
 - Modify the Kubernetes custom resource definition (CRD) file **demo-apis.yaml**. 
 
-- For each API, replace **```<ENV ID>```**, **```<USER>```** and **```<PASSWORD>```** with the values for your environment. If you are unsure how to get the environment Id check out this [article](https://help.mulesoft.com/s/question/0D52T00004mXPvSSAW/how-to-find-cloud-hub-environment-id). Save the file and run the following command
+- For each API, replace **```<ENV ID>```**, **```<USER>```** and **```<PASSWORD>```** with the values for your environment.
+
+If you are not familiar with how to get environment Client Id and Secret, navigate to **API Manager** and click on the **Environment Information** button.
+
+![](images/image-env-info1.png)
+
+![](images/image-env-info2.png)
 
 ***NOTE: *** If you run this multiple times you might need to change the version number since Anypoint Platform will keep it around for 7 days.
 
@@ -340,7 +350,7 @@ asmctl api list
 kubectl apply -f demo-bind-apis.yaml
 ```
 
-![](images/imageX.png)
+![](images/image36.png)
 
 
 - Use the following command to monitor the progress. Wait for status to change to **Ready**
@@ -349,9 +359,11 @@ kubectl apply -f demo-bind-apis.yaml
 asmctl api binding list
 ```
 
-![](images/imageX.png)
+![](images/image37.png)
 
 - If you go may to **API Management** in Anypoint Platform and refresh the page you will see that the API's are now **Active**. 
+
+![](images/image38.png)
 
 - You have completed the installation of Anypoint Service Mesh. In the next section we will walk through applying some policies against the kubernetes services.
 
@@ -363,17 +375,21 @@ asmctl api binding list
 
 - From the **API Management** Screen in Anypoint Platform click on the version number for **customer-api**
 
-    ![](images/imageX.png)
+    ![](images/image39.png)
 
 - Click **Policies** and then click **Apply New Policy**. Expand **Rate Limiting** select newest version and click **Configure Policy**. 
 
-    ![](images/imageX.png)
+    ![](images/image40.png)
 
 - We will configure the rate limit to be 1 call per minute. Click **Apply**
 
-    ![](images/imageX.png)
+    ![](images/image41.png)
 
-- You should now see your new **Rate limiting** policy. To test this out run through the order process in the demo application. Try to run through it 2 times within a minute. The second time through you will get **Account Retrieval Failed** error.
+- You should now see your new **Rate limiting** policy.
+
+	 ![](images/image42.png)
+
+- To test this out run through the order process in the demo application. Try to run through it 2 times within a minute. The second time through you will get **Account Retrieval Failed** error.
 
     ![](images/imageX.png)
 
@@ -386,11 +402,17 @@ asmctl api binding list
 
 - Click **Policies** and then click **Apply New Policy**. Expand **Client ID enforcement** select newest version and click **Configure Policy**. 
 
-    ![](images/imageX.png)
+    ![](images/image44.png)
 
 - Leave all defaults and click **APPLY**
 
-- You should now see your new **Client ID enforcement** policy. Once again run through the demo application but this time you should see **Payment Authorization Failed** when you click **AUTHORIZE PAYMENT**
+	 ![](images/image45.png)
+
+- You should now see your new **Client ID enforcement** policy.
+
+	 ![](images/image46.png)
+
+- Once again run through the demo application but this time you should see **Payment Authorization Failed** when you click **AUTHORIZE PAYMENT**
 
     ![](images/imageX.png)
 
