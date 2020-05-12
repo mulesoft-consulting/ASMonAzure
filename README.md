@@ -306,10 +306,23 @@ asmctl adapter list
 
 ![](images/image32.png)
 
+- After you provision the adapter, you must set the `istio-injection=enabled` label on the namespace by runnning the following command
+
+```bash
+kubectl label ns nto-payment istio-injection=enabled
+```
+
+- Redeploy all your existing applications in that namepsace to ensure that the Envoy sidecar is injected within each pod in the Kubernetes Cluster.
+
 <a id="step10"></a>
 ### **STEP 10**: Create APIs
 
 - We will now use now use Anypoint Service Mesh auto discovery to create API's in Anypoint Platform. We will create API's for Customer, Inventory, Order and Payments services that are used by the demo application.
+
+- Before creating the APIs, ensure the Anypoint Platform user has **API Manager Environment Administrator** permission, in addition to **Manage APIs Configuration**. This can be done by your organization admin in **Access Management*.
+
+![](images/image-service-user-permissions.png)
+ 
 
 - Modify the Kubernetes custom resource definition (CRD) file **demo-apis.yaml**. 
 
@@ -391,7 +404,7 @@ asmctl api binding list
 
 - To test this out run through the order process in the demo application. Try to run through it 2 times within a minute. The second time through you will get **Account Retrieval Failed** error.
 
-    ![](images/imageX.png)
+    ![](images/image43.png)
 
 - Before moving onto the next step remove the **Rate Limiting** policy.
 
