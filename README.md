@@ -472,6 +472,7 @@ asmctl api binding list
 
 <a id="monitoranalytics"></a>
 ## Monitor API Analytics
+
 <a id="step14"></a>
 ### **STEP 14**: View Dashborads of Customer API & Payment API 
 - Navigate to the **Anypoint Monitoring** from either the home page, or the hamburger menu. The analytics of these non-Mule APIs are now available as well!
@@ -488,7 +489,7 @@ asmctl api binding list
 
 ![](images/image50.png)
 
-- Or, you can click on **Custom dashboards** on the left to build a report for API Analytics collected from service-service communication. The API Analytics provides insights into health of managed APIs - status code, policy violations, response time and such.  
+- You can also build a report for API Analytics collected from service-service communication. The API Analytics provides insights into health of managed APIs - status code, policy violations, response time and such.  
 Follow [MuleSoft API Analytics Documentation](https://docs.mulesoft.com/api-manager/2.x/analytics-event-api#creating-a-report) to create an API Analytics report for all APIs and review if APIs are working as expected.
 
 
