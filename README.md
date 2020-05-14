@@ -29,6 +29,8 @@ This cookbook will walk you through the process of installing **Anypoint Service
 - **[Apply API Management Policies](#applypolicy)**
 	- [**STEP 12:** Apply Rate Limiting Policy to Customer API](#step12)
 	- [**STEP 13:** Apply Client ID enforcement Policy to Payment API](#step13)
+- **[Monitor API Analytics](#monitoranalytics)**
+	- [**STEP 14:** View Dashborads of Customer API & Payment API](#step14)
 
 ## Required Artifacts
 
@@ -466,6 +468,29 @@ asmctl api binding list
 - Once again run through the demo application but this time you should see **Payment Authorization Failed** when you click **AUTHORIZE PAYMENT**
 
     ![](images/image47.png)
+
+
+<a id="monitoranalytics"></a>
+## Monitor API Analytics
+<a id="step14"></a>
+### **STEP 14**: View Dashborads of Customer API & Payment API 
+- Navigate to the **Anypoint Monitoring** from either the home page, or the hamburger menu. The analytics of these non-Mule APIs are now available as well!
+
+- You can click on **Built-in dashboards** on the left to check out what's populated for the Customer & Payment APIs. In the drop-down, choose the **environment**, **resource name**, and the **API version / Instance**, and click on **View**. 
+
+![](images/image48.png)
+
+- At the top right corner of the dashboard, adjust the time period and turn on Auto-Refresh for **Customer API**. 
+
+![](images/image49.png)
+
+- Repeat the above and choose **Payment API** this time and check out its Analytics as well. 
+
+![](images/image50.png)
+
+- Or, you can click on **Custom dashboards** on the left to build a report for API Analytics collected from service-service communication. The API Analytics provides insights into health of managed APIs - status code, policy violations, response time and such.  
+Follow [MuleSoft API Analytics Documentation](https://docs.mulesoft.com/api-manager/2.x/analytics-event-api#creating-a-report) to create an API Analytics report for all APIs and review if APIs are working as expected.
+
 
 **CONGRATULATIONS!!!** You have completed installing Anypoint Service Mesh and applying policies to kubernetes services via Anypoint Platform.
 
