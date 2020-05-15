@@ -1,6 +1,5 @@
 # ASMonAzure
-![](images/title.png)  
-Update: April 30, 2020
+![](images/title.png)
 
 ## Introduction
 
@@ -55,7 +54,7 @@ This cookbook will walk you through the process of installing **Anypoint Service
 
 	![](images/image2.png)
 
-- Select **Resource Group** Enter a unique **Name** for instance and select **Region** for Virtual Network creation.
+- Select **Resource Group**. Enter a unique **Name** for instance and select **Region** for Virtual Network creation.
 
     ![](images/image3.png)
 
@@ -492,6 +491,9 @@ asmctl api binding list
 - You can also build a report for API Analytics collected from service-service communication. The API Analytics provides insights into health of managed APIs - status code, policy violations, response time and such.  
 Follow [MuleSoft API Analytics Documentation](https://docs.mulesoft.com/api-manager/2.x/analytics-event-api#creating-a-report) to create an API Analytics report for all APIs and review if APIs are working as expected.
 
+![](images/image51.png)
 
-**CONGRATULATIONS!!!** You have completed installing Anypoint Service Mesh and applying policies to kubernetes services via Anypoint Platform.
+![](images/image52.png)
+
+**CONGRATULATIONS!!!** You have completed installing Anypoint Service Mesh, applying policies to kubernetes services, and monitoring the analytics of these services via Anypoint Platform.
 
