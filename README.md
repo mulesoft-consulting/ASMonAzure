@@ -491,7 +491,7 @@ Follow [MuleSoft API Analytics Documentation](https://docs.mulesoft.com/api-mana
 
 - Click on *Run* of the report, you could download the report in the browser or view the report usring curl with the report URL to look at more details.
 
-![](images/image54.png)
+[![](images/image54.png)](Violated%20Policy%20Name.csv)
 
 <a id="step15"></a>
 ### **STEP 15**: View Dashboards of Customer API & Payment API
