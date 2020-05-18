@@ -37,6 +37,8 @@ This cookbook will walk you through the process of installing **Anypoint Service
 - The following lab requires an Enterprise Azure account.
 - Enable Anypoint Service Mesh in your Anypoint Platform Organization.
 
+For complete instructions please visit [MuleSoft Documentation](https://docs.mulesoft.com/service-mesh/1.0/)
+
 <a id="installaks"></a>
 ## Create Azure Kubernetes Services Cluster
 
@@ -132,7 +134,7 @@ kubectl get namespaces
 
 - To install **Istio** we will be using the **Istio CLI**. For completed instructions [Istio Docs](https://istio.io/docs/setup/install/istioctl/)
 
-- Use the following command to download **Istio CLI** into your directory of choice and supported by ASM (1.4.6 at this time).
+- Use the following command to download **Istio CLI** into your directory of choice and supported by Anypoint Service Mesh (1.4.x or 1.5.x at this time).
 
 ```bash
 curl -L https://istio.io/downloadIstio | ISTIO_VERSION=<x.x.x> sh -
@@ -156,13 +158,48 @@ export PATH=$PWD/bin:$PATH
 
 <a id="step5"></a>
 ### **STEP 5**: Install Istio using CLI
-- To install **Istio** we will be using the **Istio CLI**. From the **istio** directory run the following command
+- To install **Istio** we will be using the **Istio CLI**.
+
+- For **Istio 1.4.x**, from the **istio** directory run the following command
 
 ```bash
 istioctl manifest apply --set profile=demo --set values.global.disablePolicyChecks=false
 ```
 
 ![](images/image19.png)
+
+- For **Istio 1.5.x**, you'll want to create **istio-manifest.yaml** first with the following content, and then run the command with the yaml from the **istio** directory:
+
+```bash
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  profile: default
+  components:
+    policy:
+      enabled: true
+    sidecarInjector:
+      enabled: true
+    citadel:
+      enabled: true
+    telemetry:
+      enabled: true
+  addonComponents:
+    prometheus:
+      enabled: false
+  values:
+    global:
+      disablePolicyChecks: false
+    telemetry:
+      v1:
+        enabled: true
+      v2:
+        enabled: false
+```
+
+```bash
+istioctl manifest apply -f istio-manifest.yaml
+```
 
 - Verify that **Istio** has been installed. You should now see the **istio-system** namespace
 
@@ -489,7 +526,7 @@ Follow [MuleSoft API Analytics Documentation](https://docs.mulesoft.com/api-mana
 
 ![](images/image53.png)
 
-- Click on *Run* of the report, you could download the report in the browser or view the report usring curl with the report URL to look at more details.
+- Click on **Run** of the report, you could download the report in the browser or view the report usring curl with the report URL to look at more details.
 
 ![](images/image54.png)
 [Violated Policy Name.csv](Violated%20Policy%20Name.csv)
