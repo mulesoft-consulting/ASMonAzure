@@ -220,7 +220,7 @@ kubectl get namespaces
 - Clone the demo application git repository onto your local machine.
 
 ```bash
-git clone https://github.com/mulesoft-consulting/ServiceMeshDemo
+git clone https://github.com/mulesoft-consulting/ServiceMeshDemo -b 1PlatformDemo
 ```
 
 - Change to the **ServiceMeshDemo** directory and list out the contents to verify that the repository has been created correctly
