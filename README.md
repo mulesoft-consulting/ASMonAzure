@@ -411,7 +411,8 @@ If you are not familiar with how to get environment Client Id and Secret, naviga
 
 ![](images/image-env-info2.png)
 
-***NOTE: *** If you run this multiple times you might need to change the version number since Anypoint Platform will keep it around for 7 days.
+**NOTE:** If you run this multiple times you might need to change the version number in **demo-apis.yaml**, since Anypoint Platform will keep it around for 7 days.
+![](images/image-demo-apis-version.png)
 
 ```bash
 kubectl apply -f demo-apis.yaml
