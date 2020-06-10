@@ -454,7 +454,7 @@ asmctl api binding list
 
 ![](images/image37.png)
 
-- If you go may to **API Management** in Anypoint Platform and refresh the page you will see that the API's are now **Active**. 
+- If you go to **API Management** in Anypoint Platform and refresh the page you will see that the API's are now **Active**. 
 
 ![](images/image38.png)
 
