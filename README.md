@@ -275,6 +275,8 @@ http://<EXTERNAL-IP>:3000
 
 ![](images/image26.png)
 
+![](images/image26a.png)
+
 <a id="installasm"></a>
 ## Install Anypoint Service Mesh
 
