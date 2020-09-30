@@ -39,7 +39,7 @@ This cookbook will walk you through the process of installing **Anypoint Service
 - The following lab requires an Enterprise Azure account.
 - Enable Anypoint Service Mesh in your Anypoint Platform Organization.
 
-For complete instructions please visit [MuleSoft Documentation](https://docs.mulesoft.com/service-mesh/1.0/)
+For complete instructions please visit [MuleSoft Documentation](https://docs.mulesoft.com/service-mesh/1.1/)
 
 <a id="installaks"></a>
 ## Create Azure Kubernetes Services Cluster
