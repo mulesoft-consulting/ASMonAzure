@@ -59,8 +59,10 @@ For complete instructions please visit [MuleSoft Documentation](https://docs.mul
 
 	![](images/image2.png)
 
-- Select **Resource Group**. Enter a unique **Name** for instance and select **Region** for Virtual Network creation.
+- Create a new **Resource Group**.
+    ![](images/image-azure-rg.png)
 
+- Select **Resource Group**. Enter a unique **Name** for instance and select **Region** for Virtual Network creation.
     ![](images/image3.png)
 
 - Select and remove the **default** subnet. Add a new subnet with more available IP addresses.
@@ -123,6 +125,8 @@ For complete instructions please visit [MuleSoft Documentation](https://docs.mul
 - Next running the following command to verify that you cluster is running.
 
 ```bash
+az account set --subscription 5fe30022-9d07-462a-9eba-41cd46f0981c
+az aks get-credentials --name asm-aks-cluster --resource-group asm-uswest-rg
 kubectl get namespaces
 ```
 
