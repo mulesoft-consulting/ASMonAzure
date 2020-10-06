@@ -230,8 +230,6 @@ kubectl get services -n nto-payment
 http://<EXTERNAL-IP>:3000
 ```
 
-![](images/image24.png)
-
 ![](images/image25.png)
 
 - To test out the application follow these steps:
@@ -269,7 +267,7 @@ kubectl -n istio-system get cm istio -o yaml | sed -e 's/disableMixerHttpReports
 mkdir -p $HOME/.asm && curl -Ls http://anypoint.mulesoft.com/servicemesh/xapi/v1/install > $HOME/.asm/asmctl && chmod +x $HOME/.asm/asmctl && export PATH=$PATH:$HOME/.asm
 ```
 
-- Now we are ready to install Anypoint Service Mesh. To do this we will call **asmctl install**. This command requires 3 parameters
+- Now we are ready to install Anypoint Service Mesh. To do this we will call **asmctl install**. This command requires 3 parameters:
     - Client Id
     - Client Secret
     - Service Mesh license
@@ -325,7 +323,7 @@ asmctl adapter list
 kubectl label ns nto-payment istio-injection=enabled
 ```
 
-- Redeploy all the existing applications in the namepsace. See Step 6.2 in [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/1.0/provision-adapter-configure-service-mesh-CLI)
+- Redeploy all the existing applications in the namepsace. See Step 6.2 in [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/1.1/provision-adapter-configure-service-mesh-CLI)
 
 ```bash
 kubectl get deployments -n nto-payment
@@ -378,12 +376,7 @@ asmctl management check sidecar --namespace=nto-payment
 - Modify the Kubernetes custom resource definition (CRD) file **demo-apis.yaml**. 
 
 - For each API, replace **```<ENV ID>```**, **```<USER>```** and **```<PASSWORD>```** with the values for your environment.
-
-If you are not familiar with how to get environment Client Id and Secret, navigate to **API Manager** and click on the **Environment Information** button.
-
-![](images/image-env-info1.png)
-
-![](images/image-env-info2.png)
+- You'll need to [Configure Connected Apps](https://docs.mulesoft.com/service-mesh/1.1/obtain-connected-apps-credentials) to get the client credentials into your CRD file.
 
 **NOTE:** If you run this multiple times you might need to change the version number in **demo-apis.yaml**, since Anypoint Platform will keep it around for 7 days.
 ![](images/image-demo-apis-version.png)
