@@ -1,4 +1,4 @@
-# ASMonAzure
+# ASM v1.1 on Azure (WIP)
 ![](images/title.png)
 
 ## Introduction
@@ -24,15 +24,15 @@ This cookbook will walk you through the process of installing **Anypoint Service
 	- [**STEP 8:** Install Anypoint Service Mesh](#step8)
 	- [**STEP 9:** Install Anypoint Service Mesh Adapter](#step9)
 	- [**STEP 10:** Create APIs](#step10)
-	- [**STEP 11:** Binding APIs with Services](#step11)
-- **[Apply API Management Policies](#applypolicy)**
-	- [**STEP 12:** Apply Rate Limiting Policy to Customer API](#step12)
-	- [**STEP 13:** Apply Client ID enforcement Policy to Payment API](#step13)
-- **[Report & Monitor API Analytics](#reportmonitoranalytics)**
-	- [**STEP 14:** View Analytics of Customer API & Payment API](#step14)
-	- [**STEP 15:** View Dashboards of Customer API & Payment API](#step15)
-- **[Cleanup (Optional)](#cleanup)**
-	- [**STEP 16:** Cleanup APIs & Bindings](#step16)
+	- [**STEP 11:** Binding APIs with Services](#step11) //TODO
+- **[Apply API Management Policies](#applypolicy)** //TODO
+	- [**STEP 12:** Apply Rate Limiting Policy to Customer API](#step12) //TODO
+	- [**STEP 13:** Apply Client ID enforcement Policy to Payment API](#step13) //TODO
+- **[Report & Monitor API Analytics](#reportmonitoranalytics)** //TODO
+	- [**STEP 14:** View Analytics of Customer API & Payment API](#step14) //TODO
+	- [**STEP 15:** View Dashboards of Customer API & Payment API](#step15) //TODO
+- **[Cleanup (Optional)](#cleanup)** //TODO
+	- [**STEP 16:** Cleanup APIs & Bindings](#step16) //TODO
 
 ## Required Artifacts
 
@@ -125,8 +125,6 @@ For complete instructions please visit [MuleSoft Documentation](https://docs.mul
 - Next running the following command to verify that you cluster is running.
 
 ```bash
-az account set --subscription 5fe30022-9d07-462a-9eba-41cd46f0981c
-az aks get-credentials --name asm-aks-cluster --resource-group asm-uswest-rg
 kubectl get namespaces
 ```
 
@@ -375,7 +373,7 @@ asmctl management check sidecar --namespace=nto-payment
 
 - Modify the Kubernetes custom resource definition (CRD) file **demo-apis.yaml**. 
 
-- For each API, replace **```<ENV ID>```**, **```<USER>```** and **```<PASSWORD>```** with the values for your environment.
+- For each API, replace **```<environmentId>```**, **```<clientId>```** and **```<clientSecret>```** with the values for your environment.
 - You'll need to [Configure Connected Apps](https://docs.mulesoft.com/service-mesh/1.1/obtain-connected-apps-credentials) to get the client credentials into your CRD file.
 
 **NOTE:** If you run this multiple times you might need to change the version number in **demo-apis.yaml**, since Anypoint Platform will keep it around for 7 days.
