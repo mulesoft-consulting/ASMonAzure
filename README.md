@@ -24,15 +24,15 @@ This cookbook will walk you through the process of installing **Anypoint Service
 	- [**STEP 8:** Install Anypoint Service Mesh](#step8)
 	- [**STEP 9:** Install Anypoint Service Mesh Adapter](#step9)
 	- [**STEP 10:** Create APIs](#step10)
-	- [**STEP 11:** Binding APIs with Services](#step11) //TODO
-- **[Apply API Management Policies](#applypolicy)** //TODO
-	- [**STEP 12:** Apply Rate Limiting Policy to Customer API](#step12) //TODO
-	- [**STEP 13:** Apply Client ID enforcement Policy to Payment API](#step13) //TODO
-- **[Report & Monitor API Analytics](#reportmonitoranalytics)** //TODO
-	- [**STEP 14:** View Analytics of Customer API & Payment API](#step14) //TODO
-	- [**STEP 15:** View Dashboards of Customer API & Payment API](#step15) //TODO
-- **[Cleanup (Optional)](#cleanup)** //TODO
-	- [**STEP 16:** Cleanup APIs & Bindings](#step16) //TODO
+	- [**STEP 11:** Binding APIs with Services](#step11)
+- **[Apply API Management Policies](#applypolicy)**
+	- [**STEP 12:** Apply Rate Limiting Policy to Customer API](#step12)
+	- [**STEP 13:** Apply Client ID enforcement Policy to Payment API](#step13)
+- **[Report & Monitor API Analytics](#reportmonitoranalytics)**
+	- [**STEP 14:** View Analytics of Customer API & Payment API](#step14)
+	- [**STEP 15:** View Dashboards of Customer API & Payment API](#step15)
+- **[Cleanup (Optional)](#cleanup)**
+	- [**STEP 16:** Cleanup APIs & Bindings](#step16)
 
 ## Required Artifacts
 
