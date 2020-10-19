@@ -1,4 +1,4 @@
-# ASM v1.1 on Azure (WIP)
+# ASM v1.1 on Azure
 ![](images/title.png)
 
 ## Introduction
