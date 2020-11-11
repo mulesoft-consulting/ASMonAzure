@@ -1,4 +1,4 @@
-# ASMonAzure
+# ASM v1.1 on Azure
 ![](images/title.png)
 
 ## Introduction
@@ -39,7 +39,7 @@ This cookbook will walk you through the process of installing **Anypoint Service
 - The following lab requires an Enterprise Azure account.
 - Enable Anypoint Service Mesh in your Anypoint Platform Organization.
 
-For complete instructions please visit [MuleSoft Documentation](https://docs.mulesoft.com/service-mesh/1.0/)
+For complete instructions please visit [MuleSoft Documentation](https://docs.mulesoft.com/service-mesh/1.1/)
 
 <a id="installaks"></a>
 ## Create Azure Kubernetes Services Cluster
@@ -59,8 +59,10 @@ For complete instructions please visit [MuleSoft Documentation](https://docs.mul
 
 	![](images/image2.png)
 
-- Select **Resource Group**. Enter a unique **Name** for instance and select **Region** for Virtual Network creation.
+- Create a new **Resource Group**.
+    ![](images/image-azure-rg.png)
 
+- Select **Resource Group**. Enter a unique **Name** for instance and select **Region** for Virtual Network creation.
     ![](images/image3.png)
 
 - Select and remove the **default** subnet. Add a new subnet with more available IP addresses.
@@ -136,7 +138,7 @@ kubectl get namespaces
 
 - To install **Istio** we will be using the **Istio CLI**. For completed instructions [Istio Docs](https://istio.io/docs/setup/install/istioctl/)
 
-- Use the following command to download **Istio CLI** into your directory of choice and supported by Anypoint Service Mesh (1.4.x or 1.5.x at this time).
+- Use the following command to download **Istio CLI** into your directory of choice and supported by Anypoint Service Mesh (1.6.x or 1.7.x at this time).
 
 ```bash
 curl -L https://istio.io/downloadIstio | ISTIO_VERSION=<x.x.x> sh -
@@ -160,48 +162,14 @@ export PATH=$PWD/bin:$PATH
 
 <a id="step5"></a>
 ### **STEP 5**: Install Istio using CLI
-- To install **Istio** we will be using the **Istio CLI**.
 
-- For **Istio 1.4.x**, from the **istio** directory run the following command
+- To install Istio we will be using the Istio CLI. From the istio directory run the following command. At the prompt Proceed? (y/N) enter y
 
 ```bash
-istioctl manifest apply --set profile=demo --set values.global.disablePolicyChecks=false
+istioctl install
 ```
 
 ![](images/image19.png)
-
-- For **Istio 1.5.x**, you'll want to create **istio-manifest.yaml** first with the following content, and then run the command with the yaml from the **istio** directory:
-
-```bash
-apiVersion: install.istio.io/v1alpha1
-kind: IstioOperator
-spec:
-  profile: default
-  components:
-    policy:
-      enabled: true
-    sidecarInjector:
-      enabled: true
-    citadel:
-      enabled: true
-    telemetry:
-      enabled: true
-  addonComponents:
-    prometheus:
-      enabled: false
-  values:
-    global:
-      disablePolicyChecks: false
-    telemetry:
-      v1:
-        enabled: true
-      v2:
-        enabled: false
-```
-
-```bash
-istioctl manifest apply -f istio-manifest.yaml
-```
 
 - Verify that **Istio** has been installed. You should now see the **istio-system** namespace
 
@@ -260,8 +228,6 @@ kubectl get services -n nto-payment
 http://<EXTERNAL-IP>:3000
 ```
 
-![](images/image24.png)
-
 ![](images/image25.png)
 
 - To test out the application follow these steps:
@@ -299,7 +265,7 @@ kubectl -n istio-system get cm istio -o yaml | sed -e 's/disableMixerHttpReports
 mkdir -p $HOME/.asm && curl -Ls http://anypoint.mulesoft.com/servicemesh/xapi/v1/install > $HOME/.asm/asmctl && chmod +x $HOME/.asm/asmctl && export PATH=$PATH:$HOME/.asm
 ```
 
-- Now we are ready to install Anypoint Service Mesh. To do this we will call **asmctl install**. This command requires 3 parameters
+- Now we are ready to install Anypoint Service Mesh. To do this we will call **asmctl install**. This command requires 3 parameters:
     - Client Id
     - Client Secret
     - Service Mesh license
@@ -355,7 +321,7 @@ asmctl adapter list
 kubectl label ns nto-payment istio-injection=enabled
 ```
 
-- Redeploy all the existing applications in the namepsace. See Step 6.2 in [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/1.0/provision-adapter-configure-service-mesh-CLI)
+- Redeploy all the existing applications in the namepsace. See Step 6.2 in [MuleSoft Docs](https://docs.mulesoft.com/service-mesh/1.1/provision-adapter-configure-service-mesh-CLI)
 
 ```bash
 kubectl get deployments -n nto-payment
@@ -407,13 +373,8 @@ asmctl management check sidecar --namespace=nto-payment
 
 - Modify the Kubernetes custom resource definition (CRD) file **demo-apis.yaml**. 
 
-- For each API, replace **```<ENV ID>```**, **```<USER>```** and **```<PASSWORD>```** with the values for your environment.
-
-If you are not familiar with how to get environment Client Id and Secret, navigate to **API Manager** and click on the **Environment Information** button.
-
-![](images/image-env-info1.png)
-
-![](images/image-env-info2.png)
+- For each API, replace **```<environmentId>```**, **```<clientId>```** and **```<clientSecret>```** with the values for your environment.
+- You'll need to [Configure Connected Apps](https://docs.mulesoft.com/service-mesh/1.1/obtain-connected-apps-credentials) to get the client credentials into your CRD file.
 
 **NOTE:** If you run this multiple times you might need to change the version number in **demo-apis.yaml**, since Anypoint Platform will keep it around for 7 days.
 ![](images/image-demo-apis-version.png)
